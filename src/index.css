@@ -1,13 +1,177 @@
 body {
   margin: 0;
+  padding: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
+  background-image: linear-gradient(#000000, #666666);
+  background-attachment: fixed;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+label {
+  font-family: "Work Sans", sans-serif;
+  font-size: 22px;
+}
+
+legend {
+  position: relative;
+  z-index: 0;
+  display: inline-block;
+  width: auto;
+  margin: 0;
+  margin-bottom: 40px;
+  color: white;
+  font-family: "Work Sans", sans-serif;
+}
+
+legend::before {
+  position: absolute;
+  content: "";
+  width: calc(120%);
+  display: block;
+  background-color: #800000;
+  height: 40px;
+  z-index: -1;
+  left: -30px;
+  right: -30px;
+  transform: rotate(-1.5deg);
+  transition: transform 0.3s ease;
+}
+
+legend:hover::before {
+  transform: rotate(2deg);
+}
+
+form.card {
+  border: none;
+}
+
+.letra {
+  white-space: pre-wrap;
+}
+
+.card img {
+  width: 100%;
+  margin-bottom: 1rem;
+}
+h2 {
+  color: white;
+  margin-bottom: 2rem;
+  font-family: "Work Sans", sans-serif;
+  border-bottom: 4px solid #800000;
+  padding-bottom: 10px;
+}
+h3 {
+  color: white;
+  margin-bottom: 2rem;
+  font-family: "Work Sans", sans-serif;
+  border-bottom: 4px solid #800000;
+  padding-bottom: 10px;
+}
+.card-body i {
+  font-size: 3rem;
+  margin-right: 3rem;
+}
+
+@media (min-width: 34em) {
+  .card-columns {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+  }
+}
+
+@media (min-width: 48em) {
+  .card-columns {
+    -webkit-column-count: 3;
+    -moz-column-count: 3;
+    column-count: 3;
+  }
+}
+
+@media (min-width: 62em) {
+  .card-columns {
+    -webkit-column-count: 4;
+    -moz-column-count: 4;
+    column-count: 4;
+  }
+}
+
+@media (min-width: 75em) {
+  .card-columns {
+    -webkit-column-count: 5;
+    -moz-column-count: 5;
+    column-count: 5;
+  }
+}
+
+.btn {
+  background-color: #800000 !important;
+  border-color: #800000 !important;
+}
+
+.btn-crawl {
+  display: block;
+}
+
+.body-crawl {
+  align-self: center;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  overflow: hidden;
+}
+
+.fade {
+  position: relative;
+  width: 96%;
+  min-height: 60vh;
+  top: -25px;
+  background-image: linear-gradient(0deg, transparent, black 75%);
+  z-index: 1;
+}
+
+.star-wars {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  height: 600px;
+  color: #feda4a;
+  font-family: "Pathway Gothic One", sans-serif;
+  font-size: 400%;
+  font-weight: 600;
+  letter-spacing: 6px;
+  line-height: 150%;
+  perspective: 300px;
+  text-align: justify;
+}
+
+.crawl {
+  position: relative;
+  top: 99999px;
+  transform-origin: 50% 100%;
+  animation: crawl 60s linear;
+}
+
+.crawl > .title {
+  font-size: 90%;
+  text-align: center;
+}
+
+.crawl > .title h1 {
+  margin: 0 0 100px;
+  text-transform: uppercase;
+}
+
+@keyframes crawl {
+  0% {
+    top: -100px;
+    transform: rotateX(20deg) translateZ(0);
+  }
+  100% {
+    top: -6000px;
+    transform: rotateX(25deg) translateZ(-2500px);
+  }
 }
