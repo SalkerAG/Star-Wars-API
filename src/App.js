@@ -39,10 +39,9 @@ const App = () => {
   };
 
   const consultarAPIPelicula = async busqueda => {
-    const { titulo } = busqueda;
-
+    if (Object.keys(busqueda).length === 0) return null;
     //Replazamos los espacions blancos por simbolos + para realizar la búsqueda mejor
-    var nuevoTitulo = titulo.split(/[ ]+/).join("+");
+    var nuevoTitulo = busqueda.value.split(/[ ]+/).join("+");
 
     // Consultar a la API
     const url = `https://www.swapi.co/api/films/?search=${nuevoTitulo}`;

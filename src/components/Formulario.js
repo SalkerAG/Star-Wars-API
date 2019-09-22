@@ -1,22 +1,36 @@
 import React, { useState } from "react";
+import Select from "react-select";
 
 function Formulario({ consultarAPIPelicula }) {
-  const [busqueda, agregarBusqueda] = useState({
-    titulo: ""
+  // const [busqueda, agregarBusqueda] = useState({
+  //   titulo: ""
+  // });
+  const [opcionSeleccionada, setOpcionSelecionada] = useState({
+    value: "",
+    label: ""
   });
+  const options = [
+    { value: "A New Hope", label: "A New Hope" },
+    { value: "Attack of the Clones", label: "Attack of the Clones" },
+    { value: "The Phantom Menace", label: "The Phantom Menace" },
+    { value: "Revenge of the Sith", label: "Revenge of the Sith" },
+    { value: "Return of the Jedi", label: "Return of the Jedi" },
+    { value: "The Empire Strikes Back", label: "The Empire Strikes Back" },
+    { value: "The Force Awakens", label: "The Force Awakens" }
+  ];
 
-  // Función para actualizar el state de los inputs
-  const actualizarState = e => {
-    agregarBusqueda({
-      [e.target.name]: e.target.value
-    });
-  };
+  // // Función para actualizar el state de los inputs
+  // const actualizarState = e => {
+  //   agregarBusqueda({
+  //     [e.target.name]: e.target.value
+  //   });
+  // };
 
   // Cuando hacemos submit al form
   const enviarInformacion = e => {
     e.preventDefault();
-
-    consultarAPIPelicula(busqueda);
+    console.log(opcionSeleccionada);
+    consultarAPIPelicula(opcionSeleccionada);
   };
 
   return (
@@ -33,14 +47,21 @@ function Formulario({ consultarAPIPelicula }) {
             <div className="row">
               <div className="col-md-6">
                 <div className="form-group">
-                  <input
+                  <Select
+                    placeholder="Titulo"
+                    value={opcionSeleccionada}
+                    onChange={value => setOpcionSelecionada(value)}
+                    className="text-dark"
+                    options={options}
+                  />
+                  {/* <input
                     type="text"
                     className="form-control"
                     name="titulo"
                     placeholder="Titulo película"
                     onChange={actualizarState}
                     required
-                  />
+                  /> */}
                 </div>
               </div>
               <div className="col-md-6">
